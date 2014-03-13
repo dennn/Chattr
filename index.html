@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Chattr">
+	<meta name="description" content="Chattr - A web video chat website">
+
+	<title>chattr</title>
+
+	<!-- CSS -->
+	<link href="assets/css/gridism.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+
+    <!-- Fonts --> 
+    <script type="text/javascript" src="//use.typekit.net/zjw2gza.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	</head>
+
+	<body>
+		<!-- Login via facebook section-->
+		<section class="login grid">
+			<div class="unit whole align-center">
+				<h1>chattr</h1>
+				<a href="#" class="button-facebook">Login with Facebook</a>
+			</div>
+		</section>
+
+		<!-- Friends section -->
+		<section class="contacts grid">
+			<div data-scroll-reveal="enter from the left, move 80px over 0.6s" class="unit golden-small align-left">
+				<h1>Connecting you with your world.</h1>
+				<p>Chattr means that you're always connected to your love ones, wherever they are in the world. And because it uses Facebook, your contacts are already synced.</p>
+			</div>
+			<!-- Friend images -->
+			<div class="unit golden-large align-center">
+				<div class="grid">
+ 					<div data-scroll-reveal="enter from the left, move 80px over 0.6s" class="unit one-third">
+            			<img class="contact-image" src="assets/img/ian.png" alt="Ian" />
+          			</div>
+          			<div data-scroll-reveal="enter from the left, move 80px over 0.6s" class="unit one-third">
+            			<img class="contact-image" src="assets/img/jessica.png" alt="Jessica" />
+          			</div>
+          			<div data-scroll-reveal="enter from the left, move 80px over 0.6s" class="unit one-third">
+            			<img class="contact-image" src="assets/img/mia.png" alt="Mia" />
+          			</div>
+          		</div>
+          		<div class="grid">
+ 					<div data-scroll-reveal="enter from the left, move 80px over 0.6s" class="unit one-third">
+            			<img class="contact-image" src="assets/img/leah.png" alt="Ian" />
+          			</div>
+          			<div data-scroll-reveal="enter from the left, move 80px over 0.6s" class="unit one-third">
+            			<img class="contact-image" src="assets/img/toby.png" alt="Ian" />
+          			</div>
+          			<div data-scroll-reveal="enter from the left, move 80px over 0.6s" class="unit one-third">
+            			<img class="contact-image" src="assets/img/josh.png" alt="Ian" />
+          			</div>
+          		</div>
+			</div>
+		</section>
+
+		<!-- Technologies -->
+		<section class="technologies grid">
+			<h1 class="unit whole align-center">Core technologies.</h1>
+
+			<div class="grid">
+				<div class="unit one-third align-center">
+					<img src="assets/img/redis.png" class="technology"/>
+					<p>Redis is awesome. It's speed and ease of use powers the portion of our site that handles the chat room state storage. </p>
+				</div>
+				<div class="unit one-third align-center">
+					<img src="assets/img/nodejs.png" class="technology"/>
+					<p>Node.js is the invisible guardian of chattr. It serves the content, sets up the initial connections between you and your friends and runs the services behind the scenes.</p>
+				</div>
+				<div class="unit one-third align-center">
+					<img src="assets/img/webrtc.png" class="technology"/>
+					<p>WebRTC is a new technology that is used to send the video chat data between you and your friends. It's all encrypted, so that your private conversations remain just that - private. </p>
+				</div>
+			</div>
+
+			<div class="grid">
+				<div class="unit two-thirds">
+					<figure id='drawing'></figure>
+				</div>
+				<ol class="unit one-third">
+					<li>The two contacts communicate with a central server</li>
+					<li>The central server informs the two contacts how to communicate with each other</li>
+					<li>Peer-2-peer communication commences between the two contacts</li>
+				</ol>
+			</div>
+		</section>
+
+		<!-- Contact -->
+		<section class="contact-us grid">
+			<h1 class="unit whole align-center">Signup to be notified when we launch.</h1>
+			<form class="unit whole align-center" name="email-signup" action="#">
+				<input name="email" type="text" placeholder="Enter your e-mail address" class="input-text" required>
+				<input type="submit" class="input-submit">
+			</form>
+		</section>
+
+		<!-- Javascript -->
+  		<script src='assets/js/scrollReveal.min.js'></script>
+  		<script src='assets/js/svg.min.js'></script>
+  		<script>
+  			/*
+  			 * ScrollReveal.js
+  			 */ 
+      		window.scrollReveal = new scrollReveal();
+
+      		/*
+      		 * svg.js
+      		 */
+      		var draw = SVG('drawing')
+
+      		/* 
+      		 * Draw the arrows 
+      		 */
+			var arrow = draw.polyline([[30, 20], [50, 3], [70, 20], [50, 5], [50, 175]]).fill('none').stroke({color: '#DDD', width: 3})
+			// Left arrows
+			var arrowLeftUp = arrow.clone().rotate(45)
+	//		var arrowLeftDown = arrow.clone().rotate(225).move(-10, 0)
+			var groupLeft = draw.group()
+			groupLeft.add(arrowLeftUp)
+	//		groupLeft.add(arrowLeftDown)
+			groupLeft.translate(100, 20)
+			// Right arrows
+			var arrowRightUp = arrow.clone().rotate(315).move(70, 0)
+		//	var arrowRightDown = arrow.clone().rotate(135)
+			var groupRight = draw.group()
+			groupRight.add(arrowRightUp)
+	//		groupRight.add(arrowRightDown)
+			groupRight.translate(330, 48)
+			// Bottom arrow
+			var doubleArrow = draw.polyline([[20, 30], [3, 50], [20, 70], [5, 50], [275, 50], [257, 30], [277, 50], [257, 70]]).fill('none').stroke({color: '#fff', width: 3})
+			doubleArrow.translate(140, 210)
+			// Hide the main arrow
+			arrow.hide()
+
+			/*
+			 * Draw the circle
+			 */ 
+			var circle = draw.circle(25).fill('#FF851B').opacity(0.75)
+			circle.translate(80, 155)
+  		</script>
+    </body>
+</html>

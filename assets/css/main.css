@@ -1,0 +1,185 @@
+/* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+
+/* Site styles */
+body, html {
+	height: 100%;
+	width: 100%;
+	-webkit-font-smoothing: antialiased;
+	background-color: rgb(24, 27, 31);
+}
+
+/* Sections */
+
+section {
+	overflow: hidden;
+}
+
+.login {
+	min-height: 100%;
+	color: #fff;
+}
+
+.contacts {
+	background-color: rgb(255, 255, 255);
+	min-height: 64%;
+}
+
+.technologies {
+	background-color: rgb(54, 54, 54);
+	max-height: 100%;
+}
+
+.contact-us {
+	background-color: rgb(14, 21, 14);
+	min-height: 40%;
+}
+
+/* Login section */
+
+.login h1 {
+	font-size: 7em;
+	position: relative;
+	padding-top: 10%;
+	padding-bottom: 5%;
+	font-family: "petala-pro",sans-serif;
+	font-weight: 100;
+}
+
+.button-facebook {
+	font-size: 14px;
+	background-color: rgb(0, 127, 209);
+	border-width: 0;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+ 	-moz-border-radius: 4px;
+	padding: 15px 25px 15px 25px;
+	cursor: pointer;
+	color: white;
+	text-decoration: none;
+}
+
+.button-facebook:hover {
+	background-color: rgb(41, 176, 241);
+}
+
+/* Contacts section */
+
+.contacts h1 {
+	margin-left: 17.5%;
+	width: 75%;
+	font-family: "petala-pro",sans-serif;
+	font-weight: 300;
+	font-size: 2.8em;
+	margin-top: 10%;
+	line-height: 1.1em;
+	color: rgb(51, 51, 51);
+}
+
+.contacts p {
+	width: 75%;
+	margin-left: 17.5%;
+	color: rgb(133, 133, 133);
+	font-family: "petala-pro",sans-serif;
+	font-weight: 300;
+	font-size: 1em;
+	margin-top: 6%;
+	line-height: 1.2em;
+}
+
+.contact-image {
+	width: 60%;
+	height: 60%;
+	margin-top: 5%;
+	border-radius: 100px;
+ 	-webkit-border-radius: 100px;
+ 	-moz-border-radius: 100px;
+ 	border: solid 2px rgb(23, 26, 30);
+}
+
+/* Technologies section */
+
+.technologies h1 {
+	font-family: "petala-pro",sans-serif;
+	font-weight: 100;
+	font-size: 2.8em;
+	margin-top: 2%;
+	line-height: 1.1em;
+	color: rgb(255, 255, 255);
+}
+
+.technologies p {
+	width: 70%;
+	margin-left: 15%;
+	color: rgb(223, 223, 223);
+	font-family: "petala-pro",sans-serif;
+	font-weight: 400;
+	font-size: 0.9em;
+	margin-top: 5%;
+	line-height: 1.1em;
+}
+
+.technologies img {
+	width: 50%;
+	height: 20%;
+	margin-top: 5%;
+}
+
+/* Contact us section */
+
+.contact-us h1 {
+	font-family: "petala-pro",sans-serif;
+	font-weight: 100;
+	font-size: 2em;
+	margin-top: 2%;
+	line-height: 1.1em;
+	color: rgb(255, 255, 255);
+}
+
+.input-text {
+	margin-top: 2%;
+	background-color: rgb(74, 74, 74);
+	color: rgb(255, 255, 255);
+	width: 20%;
+	font-family: "petala-pro", sans-serif;
+	font-weight: 500;
+	font-size: 1.3em;
+	line-height: 2.2em;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.input-submit {
+	margin-left: 10px;
+	font-size: 14px;
+	background-color: rgb(51, 154, 21);
+	border-width: 0;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+ 	-moz-border-radius: 4px;
+	padding: 16px 25px 16px 25px;
+	cursor: pointer;
+	color: white;
+	text-decoration: none;
+}
+
+.input-submit:hover {
+	background-color: rgb(51, 164, 21);
+}
+
+/* Navigation section */
+
+nav {
+	height: 10%;
+	background-color: rgb(4, 4, 4);
+}
+
+.navigation-header {
+	box-align: center;
+	display: box;
+	font-family: "petala-pro",sans-serif;
+	font-weight: 400;
+	font-size: 1.5em;
+	line-height: 1.1em;
+	letter-spacing: 0.1em;
+	color: rgb(255, 255, 255);
+}

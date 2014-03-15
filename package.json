@@ -1,0 +1,23 @@
+{
+  "name": "web_tech",
+  "version": "0.1.0",
+  "description": "A Skype clone in the web browser",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dennn/Chattr.git"
+  },
+  "author": "Denis Ogun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dennn/Chattr/issues"
+  },
+  "homepage": "https://github.com/dennn/Chattr",
+  "dependencies": {
+    "express": "~3.4.8"
+  }
+}

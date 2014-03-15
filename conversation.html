@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
+<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,27 +11,133 @@
 
 	<!-- CSS -->
 	<link href="assets/css/gridism.css" rel="stylesheet">
-    <link href="assets/css/main.css" rel="stylesheet">
+	<link href="assets/css/main.css" rel="stylesheet">
 
-    <!-- Fonts --> 
-    <script type="text/javascript" src="//use.typekit.net/zjw2gza.js"></script>
+	<!-- Fonts --> 
+	<script type="text/javascript" src="//use.typekit.net/zjw2gza.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-	</head>
 
-	<body>
-		<!-- Navigation-->
-		<nav class="grid">
-			<h1 class="navigation-header unit whole align-center">chattr</h1>
-		</nav>
+</head>
 
-		<section class="grid">
-			
-		</section>
+<body>
+	<!-- Navigation-->
+	<nav class="grid">
+		<!-- Offset the grid with an empty div-->
+		<div class="unit one-third"></div>
+		<h1 class="unit one-third align-center">chattr</h1>
+		<h2 class="unit one-third align-right">Logged in as Denis Ogun</h2>
+	</nav>
 
-		<!-- Javascript -->
-  		<script src='assets/js/scrollReveal.min.js'></script>
-  		<script>
-      		window.scrollReveal = new scrollReveal(config);
-  		</script>
-    </body>
+	<section class="grid conversation">
+		<div class="unit golden-small align-center">
+			<video id="myVideo" autoplay="true"></video>
+			<canvas id="videoCanvas"></canvas>
+			<ul id="filter-buttons" class="align-center">
+				<li id="sepia" class="filter-button">Sepia</li>
+				<li id="grayscale" class="filter-button">Grayscale</li>
+				<li id="blur" class="filter-button">Blur</li>
+				<li id="invert" class="filter-button">Invert</li>
+			</ul>
+		</div>
+
+		<video id="theirVideo" autoplay="true">
+
+		</video>
+	</section>
+
+	<!-- Javascript -->
+	<script src="assets/js/jquery-2.1.0.min.js"></script>
+	<script>
+		$(function() {
+
+			/* Video playing */
+
+			var myVideo = $('#myVideo');
+
+			navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
+
+			if (navigator.getUserMedia) {       
+				      			navigator.getUserMedia({video: true}, handleVideo, handleError);
+			} else {
+				window.location.replace("/noWebRTC.html");
+			}
+
+			function handleVideo(stream) {
+				removeNoise();
+				myVideo[0].src = window.URL.createObjectURL(stream);
+				myVideo[0].load();
+			}
+
+			function handleError(e) {
+				console.log("Cant play video because of" + e)
+			}
+
+			/* Video filters */
+
+			var lastClass = null;
+
+			$("li").on("click", function() {
+				if (lastClass != null) {
+					myVideo.removeClass(lastClass);
+				}
+				myVideo.addClass(this.id);
+				lastClass = this.id;
+			});
+
+			/* Generate white noise */
+
+			var backgroundsToGenerate = 20;
+			var updateInterval = 40;
+
+			var canvas = document.getElementById("videoCanvas");
+			var context = canvas.getContext("2d");
+
+			var backgrounds = [];
+			var cycle = 0;
+			var timer;
+
+		//	generateNoise();
+
+			function generateNoise() {
+				var w = canvas.width;
+				var h = canvas.height;
+
+				for (id = 0; id < backgroundsToGenerate; id++) {
+					for (i = 0; i < w; i++) {
+						for (j = 0; j < h; j++) {
+							var num = Math.floor(Math.random() * 255);
+							context.fillStyle = "rgb(" + num + "," + num + "," + num + ")";
+							context.fillRect(i, j, 1, 1);
+						}
+					}
+					var dataURL = canvas.toDataURL();
+					backgrounds.push(dataURL);
+				}
+			//	timer = setInterval(useNoise, updateInterval);
+			}
+
+			function removeNoise() {
+				clearInterval(timer);
+				myVideo.css({
+					"background": ""
+				});
+			}
+
+			function replaceBackground(dataURL) {
+				myVideo.css({
+					"background": "url(" + dataURL + ")"
+				});
+			}
+
+			function useNoise() {
+				if (cycle > backgrounds.length - 1) {
+					cycle = 0;
+				}
+
+				replaceBackground(backgrounds[cycle]);
+				cycle++;
+			}
+		});
+	</script
+</body>
 </html>

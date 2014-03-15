@@ -78,17 +78,6 @@
 					<p>WebRTC is a new technology that is used to send the video chat data between you and your friends. It's all encrypted, so that your private conversations remain just that - private. </p>
 				</div>
 			</div>
-
-			<div class="grid">
-				<div class="unit two-thirds">
-					<figure id='drawing'></figure>
-				</div>
-				<ol class="unit one-third">
-					<li>The two contacts communicate with a central server</li>
-					<li>The central server informs the two contacts how to communicate with each other</li>
-					<li>Peer-2-peer communication commences between the two contacts</li>
-				</ol>
-			</div>
 		</section>
 
 		<!-- Contact -->
@@ -102,47 +91,11 @@
 
 		<!-- Javascript -->
   		<script src='assets/js/scrollReveal.min.js'></script>
-  		<script src='assets/js/svg.min.js'></script>
   		<script>
   			/*
   			 * ScrollReveal.js
   			 */ 
       		window.scrollReveal = new scrollReveal();
-
-      		/*
-      		 * svg.js
-      		 */
-      		var draw = SVG('drawing')
-
-      		/* 
-      		 * Draw the arrows 
-      		 */
-			var arrow = draw.polyline([[30, 20], [50, 3], [70, 20], [50, 5], [50, 175]]).fill('none').stroke({color: '#DDD', width: 3})
-			// Left arrows
-			var arrowLeftUp = arrow.clone().rotate(45)
-	//		var arrowLeftDown = arrow.clone().rotate(225).move(-10, 0)
-			var groupLeft = draw.group()
-			groupLeft.add(arrowLeftUp)
-	//		groupLeft.add(arrowLeftDown)
-			groupLeft.translate(100, 20)
-			// Right arrows
-			var arrowRightUp = arrow.clone().rotate(315).move(70, 0)
-		//	var arrowRightDown = arrow.clone().rotate(135)
-			var groupRight = draw.group()
-			groupRight.add(arrowRightUp)
-	//		groupRight.add(arrowRightDown)
-			groupRight.translate(330, 48)
-			// Bottom arrow
-			var doubleArrow = draw.polyline([[20, 30], [3, 50], [20, 70], [5, 50], [275, 50], [257, 30], [277, 50], [257, 70]]).fill('none').stroke({color: '#fff', width: 3})
-			doubleArrow.translate(140, 210)
-			// Hide the main arrow
-			arrow.hide()
-
-			/*
-			 * Draw the circle
-			 */ 
-			var circle = draw.circle(25).fill('#FF851B').opacity(0.75)
-			circle.translate(80, 155)
   		</script>
     </body>
 </html>

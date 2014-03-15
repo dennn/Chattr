@@ -8,5 +8,5 @@ app.configure(function () {
   		res.status(404).sendfile('404.html');
 	});
 });
-app.listen(4000); //the port you want to use
+app.listen(process.env.PORT || 4000); //the port you want to use
 

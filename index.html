@@ -12,6 +12,7 @@
 	<!-- CSS -->
 	<link href="assets/css/gridism.css" rel="stylesheet">
     <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/animate.css" rel="stylesheet">
 
     <!-- Fonts --> 
     <script type="text/javascript" src="//use.typekit.net/zjw2gza.js"></script>
@@ -22,38 +23,42 @@
 		<!-- Login via facebook section-->
 		<section class="login grid">
 			<div class="unit whole align-center">
-				<h1>chattr</h1>
-				<a href="#" class="button-facebook">Login with Facebook</a>
+				<h1 class="wow fadeInDown">chattr</h1>
+				<a href="#" class="button-facebook wow fadeIn" data-wow-delay="0.3s">Login with Facebook</a>
 			</div>
+			<div class="unit whole align-center">
+				<button id="down-button" class="wow fadeIn" data-wow-delay="0.3s"></button>
+			</div>
+
 		</section>
 
 		<!-- Friends section -->
 		<section class="contacts grid">
-			<div data-scroll-reveal="enter from the left, move 80px over 0.6s" class="unit golden-small align-left">
+			<div class="unit golden-small align-left">
 				<h1>Connecting you with your world.</h1>
 				<p>Chattr means that you're always connected to your love ones, wherever they are in the world. And because it uses Facebook, your contacts are already synced.</p>
 			</div>
 			<!-- Friend images -->
 			<div class="unit golden-large align-center">
 				<div class="grid">
- 					<div data-scroll-reveal="enter from the left, move 80px over 0.6s" class="unit one-third">
+ 					<div class="unit one-third">
             			<img class="contact-image" src="assets/img/ian.png" alt="Ian" />
           			</div>
-          			<div data-scroll-reveal="enter from the left, move 80px over 0.6s" class="unit one-third">
+          			<div class="unit one-third">
             			<img class="contact-image" src="assets/img/jessica.png" alt="Jessica" />
           			</div>
-          			<div data-scroll-reveal="enter from the left, move 80px over 0.6s" class="unit one-third">
+          			<div class="unit one-third">
             			<img class="contact-image" src="assets/img/mia.png" alt="Mia" />
           			</div>
           		</div>
           		<div class="grid">
- 					<div data-scroll-reveal="enter from the left, move 80px over 0.6s" class="unit one-third">
+ 					<div class="unit one-third">
             			<img class="contact-image" src="assets/img/leah.png" alt="Ian" />
           			</div>
-          			<div data-scroll-reveal="enter from the left, move 80px over 0.6s" class="unit one-third">
+          			<div class="unit one-third">
             			<img class="contact-image" src="assets/img/toby.png" alt="Ian" />
           			</div>
-          			<div data-scroll-reveal="enter from the left, move 80px over 0.6s" class="unit one-third">
+          			<div class="unit one-third">
             			<img class="contact-image" src="assets/img/josh.png" alt="Ian" />
           			</div>
           		</div>
@@ -81,7 +86,7 @@
 		</section>
 
 		<!-- Contact -->
-		<section class="contact-us grid">
+		<section class="contact-us grid wow fadeInUp">
 			<h1 class="unit whole align-center">Signup to be notified when we launch.</h1>
 			<form class="unit whole align-center" name="email-signup" action="#">
 				<input name="email" type="text" placeholder="Enter your e-mail address" class="input-text" required>
@@ -90,12 +95,19 @@
 		</section>
 
 		<!-- Javascript -->
-  		<script src='assets/js/scrollReveal.min.js'></script>
+  		<script src='assets/js/wow.min.js'></script>
+  		<script src="assets/js/jquery-2.1.0.min.js"></script>
   		<script>
   			/*
-  			 * ScrollReveal.js
+  			 * Wow.js - Scroll animation library
   			 */ 
-      		window.scrollReveal = new scrollReveal();
+      		 new WOW().init();
+
+      		 $("#down-button").click(function() {
+    			$('html, body').animate({
+        			scrollTop: $(".contacts").offset().top
+    			 }, 700);
+			 });
   		</script>
     </body>
 </html>

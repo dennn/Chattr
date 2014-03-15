@@ -7,7 +7,7 @@
 	<meta name="author" content="Chattr">
 	<meta name="description" content="Chattr - A web video chat website">
 
-	<title>chattr</title>
+	<title>chattr - Conversations</title>
 
 	<!-- CSS -->
 	<link href="assets/css/gridism.css" rel="stylesheet">
@@ -25,7 +25,10 @@
 		<!-- Offset the grid with an empty div-->
 		<div class="unit one-third"></div>
 		<h1 class="unit one-third align-center">chattr</h1>
-		<h2 class="unit one-third align-right">Denis Ogun</h2>
+		<div class="unit one-third align-right">
+			<h2>Denis Ogun</h2>
+			<a href="/"><img src="/assets/img/logout.png" alt="logout" class="logout" /></a>
+		</div>
 	</nav>
 
 	<section class="grid conversation">
@@ -66,7 +69,7 @@
 			if (navigator.getUserMedia) {       
 				      			navigator.getUserMedia({video: true}, handleVideo, handleError);
 			} else {
-				window.location.replace("/noWebRTC.html");
+				window.location.replace("/no-web-rtc.html");
 			}
 
 			function handleVideo(stream) {

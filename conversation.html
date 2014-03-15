@@ -25,14 +25,17 @@
 		<!-- Offset the grid with an empty div-->
 		<div class="unit one-third"></div>
 		<h1 class="unit one-third align-center">chattr</h1>
-		<h2 class="unit one-third align-right">Logged in as Denis Ogun</h2>
+		<h2 class="unit one-third align-right">Denis Ogun</h2>
 	</nav>
 
 	<section class="grid conversation">
 		<div class="unit golden-small align-center">
-			<video id="myVideo" autoplay="true"></video>
+			<div id="myVideoContainer">
+				<video id="myVideo" autoplay="true"></video>
+			</div>
 			<canvas id="videoCanvas"></canvas>
-			<ul id="filter-buttons" class="align-center">
+			<ul id="filter-buttons" class="pull-left">
+				<li id="zoom" class="filter-button">Zoom</li>
 				<li id="sepia" class="filter-button">Sepia</li>
 				<li id="grayscale" class="filter-button">Grayscale</li>
 				<li id="blur" class="filter-button">Blur</li>
@@ -40,7 +43,11 @@
 			</ul>
 		</div>
 
-		<video id="theirVideo" autoplay="true">
+		<div class="unit golden-large">
+			<div id="theirVideoContainer">
+				<video id="theirVideo" autoplay="true"></video>
+			</div>
+		</div>
 
 		</video>
 	</section>
@@ -63,7 +70,7 @@
 			}
 
 			function handleVideo(stream) {
-				removeNoise();
+//				removeNoise();
 				myVideo[0].src = window.URL.createObjectURL(stream);
 				myVideo[0].load();
 			}
@@ -80,11 +87,15 @@
 				if (lastClass != null) {
 					myVideo.removeClass(lastClass);
 				}
-				myVideo.addClass(this.id);
-				lastClass = this.id;
+				if (lastClass != this.id) {
+					myVideo.addClass(this.id);
+					lastClass = this.id;
+				} else {
+					lastClass = null;
+				}
 			});
 
-			/* Generate white noise */
+			/* Generate white noise 
 
 			var backgroundsToGenerate = 20;
 			var updateInterval = 40;
@@ -96,7 +107,7 @@
 			var cycle = 0;
 			var timer;
 
-		//	generateNoise();
+			generateNoise();
 
 			function generateNoise() {
 				var w = canvas.width;
@@ -113,7 +124,7 @@
 					var dataURL = canvas.toDataURL();
 					backgrounds.push(dataURL);
 				}
-			//	timer = setInterval(useNoise, updateInterval);
+				timer = setInterval(useNoise, updateInterval);
 			}
 
 			function removeNoise() {
@@ -137,6 +148,8 @@
 				replaceBackground(backgrounds[cycle]);
 				cycle++;
 			}
+
+			*/
 		});
 	</script
 </body>

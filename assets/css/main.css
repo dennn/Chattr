@@ -54,7 +54,7 @@ section {
 .button-facebook {
 	font-family: "petala-pro",sans-serif;
 	font-size: 14px;
-	font-weight: 400;
+	font-weight: 600;
 	background-color: rgb(0, 127, 209);
 	border-width: 0;
 	border-radius: 4px;
@@ -202,11 +202,31 @@ nav h2 {
 
 /* Video section */
 
+#myVideoContainer {
+	margin-left: 35px;
+	margin-top: 15px;
+	width: 80%;
+    height: 40%;
+    border: 5px solid #fff;
+}
+
 #myVideo {
     background: #000;
-    width: 400px;
-    height: 300px;
-    border: 5px solid #fff;
+    width: 100%;
+    height: 40%;
+}
+
+#theirVideoContainer {
+	margin-top: 15px;
+	width: 95%;
+	height: 100%;
+	border: 5px solid #fff;
+}
+
+#theirVideo {
+	background: #000;
+    width: 100%;
+    height: 80%;
 }
 
 #videoCanvas {
@@ -216,9 +236,9 @@ nav h2 {
 }
 
 #filter-buttons {
-	text-align: center;
 	display: inline-block;
 	margin-top: 20px;
+	margin-left: 65px;
 }
 
 .filter-button {
@@ -242,6 +262,7 @@ nav h2 {
 	background-color: rgb(240, 240, 240);
 }
 
+
 .grayscale {
 	-webkit-filter: grayscale(1);
     filter: grayscale(1);
@@ -260,4 +281,10 @@ nav h2 {
 .blur {
     -webkit-filter: blur(2px);
     filter: blur(2px);
+}
+
+/* Error */
+
+.error h1 {
+  	font-family: "ff-market-web",cursive;
 }

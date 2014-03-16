@@ -3,7 +3,6 @@ var app = express();
 app.configure(function () {
 	app.use(function(req, res, next) {
 		var extension = req.path.split('.').pop();
-		console.log(extension);  
 		if (extension == "/" || extension == "html") {
 			res.setHeader("Content-Type", "application/xhtml+xml");
 		}

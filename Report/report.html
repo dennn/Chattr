@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 (experimental) for Mac OS X https://github.com/w3c/tidy-html5/tree/c63cc39" />
+<meta charset="UTF-8" />
+<title>report - Denis Ogun (do1303)</title>
+<meta name="generator" content="iA Writer for Mac 1.5.1 (5593)" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link href="report.css" rel="stylesheet" />
+</head>
+<body>
+<h1>Web Tech Client Report - Denis Ogun (do1303)</h1>
+<h1>Introduction</h1>
+<p>For this assignment I decided to create the basics of a new startup called chattr. Chattr allows users to create a video chat room and then have conversations with their friends.</p>
+<h1>Highlights</h1>
+<ul>
+<li>Working webcam input, including the ability to add CSS filters to the webcam input.</li>
+<li>The basics of WebRTC communication has been setup including importing the Socket.IO library. To complete this there needs to be some communication with the server before the peer-2-peer communication can occur.</li>
+<li>JQuery email form validation. I found a Regex email checking string on www.stackoverflow.com but wrote all the other JQuery code in index.js myself, using the documentation and Google searches to find method names.</li>
+<li>CSS animation effects using the Animate.css and Wow.js frameworks. Animate.css contains the CSS3 animations and the Wow.js library is a javascript library that calls these animations when the elements are scrolled into the viewport.</li>
+<li>Fallback pages for browser's that don't have WebRTC available. The server also serves a 404 page when an unavailable resource is requested.</li>
+<li>Procedurally generated white noise while waiting for video input to be allowed</li>
+</ul>
+<h1>HTML, CSS and Javascript</h1>
+<p>I've used HTML tags in an appropriate way, utilising new tags such as &lt;section&gt; and &lt;nav&gt; rather than simply having a &lt;div&gt;. All HTML, CSS and Javascript are separate from each other except an Adobe TypeKit call. Adobe TypeKit is a CDN for fonts and the line of Javascript authenticates itself, before adding the relevant @font-face CSS styles.</p>
+<p>There is one commented section of Javascript in conversation.js that generates a series of 20 random white noise images. These are then used as loading image whilst webcam input is being approved. This can be enabled by uncommenting lines 16, 42 and 96. The reason it's disabled is because it was causing a render blocking issue that I was unable to fix in time, but an image of the white noise can be seen <a href="http://cl.ly/URqP">here</a>.</p>
+<h1>Images and graphics</h1>
+<ul>
+<li>Adobe Illustrator was used to create the <a href="http://cl.ly/USOv">scroll down image</a> and the <a href="http://cl.ly/URen">log out image</a>. I chose to use Adobe Illustrator as I've had experience with it in the past, and so felt I'd be able to achieve more in the assignment if I didn't have to learn how to use another piece of software.</li>
+<li>Adobe Photoshop was used to carry out some minor adjustments to images. For example, the Redis logo text needed to be in white rather than <a href="http://redis.io/images/redis-300dpi.png">gray</a> to match the background. I therefore created a selection box over the text and added a colour overlay. This also applied to the <a href="http://blog.evanoxfeld.com/streams-0.10-presentation/images/nodejs-light.png">Node.js logo</a>. Photoshop was also used to prototype with colour schemes. After I'd drawn up mockups of the website design, I imported them into photoshop and roughly coloured in the different elements to see how they looked. I decided it was best to try and do most of the design work using CSS3 rather than images to decrease the number of resources that need to be loaded. This is why the contact images where rounded and had borders added using CSS.</li>
+</ul>
+<h1>Deployment</h1>
+<p>The site is running on a Node.js server using <a href="http://young-springs-6599.herokuapp.com">Heroku</a>, and this is why there is a Procfile package.json file in the directory. The site uses the <a href="http://expressjs.com">Express.js</a> framework to and the server can be found in server.js. This serves the static files, redirects to a 404 page if a requested resource can't be found and makes sure the Content-Type is application/xhtml+xml</p>
+<h1>Standards and Testing</h1>
+<p>My website serves XHTML 5 and is fully compliant to the standards. It's also fully compliant to the CSS3 standards, apart from cases where I've used browser prefixes such as -webkit, -moz and -o. In all cases I've also included the standardised version of the property. I've tested the website on the following browsers:</p>
+<ul>
+<li>Google Chrome Version 33.0.1750.152</li>
+<li>Safari Version 7.0.2 (9537.74.9)</li>
+<li>Firefox 27.0.1</li>
+</ul>
+<p>My development environment runs OS X and so I was unable to test using Internet Explorer, however, I did run a browsershots.org query and saw the following <a href="http://cl.ly/URUA">image</a> for Internet Explorer 9, 10 and 11.</p>
+</body>
+</html>

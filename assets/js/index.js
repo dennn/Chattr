@@ -12,8 +12,8 @@ $(function() {
  	   }, 700);
 	});
 
-	 $("#email-signup").submit(function() {
-	 	event.preventDefault();
+	 $("#email-signup").submit(function(event) {
+     	event.preventDefault(event);  
 	 	console.log("CALLED");
 	 	var email = $('#email').val();
 	 	if (email == '' || IsEmail(email) == false) {
@@ -24,6 +24,7 @@ $(function() {
 	 		$("#signup-text").showSuccess();
 	 		$(this).fadeOut();
 	 	}
+	 	return false;
 	 });
 
 	 $.fn.showSuccess = function() {

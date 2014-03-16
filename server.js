@@ -1,10 +1,13 @@
 var express = require('express');
 var app = express();
 app.configure(function () {
-	app.use(express.compress());
 	app.use(function(req, res, next) {
-    	res.setHeader("Content-Type", "application/xhtml+xml");
-    	return next();
+		var extension = req.path.split('.').pop();
+		console.log(extension);  
+		if (extension == "/" || extension == "html") {
+			res.setHeader("Content-Type", "application/xhtml+xml");
+		}
+		next();
  	});
     app.use("/", express.static(__dirname));
 

@@ -1,10 +1,10 @@
+/*
+ * Wow.js - Scroll animation library 
+ */ 
+
+new WOW().init();
+
 $(function() {
-
-	/*
-	 * Wow.js - Scroll animation library
-	 */ 
- 	new WOW().init();
-
 	/* Scroll down button */
 	 $("#down-button").click(function() {
 	 	$('html, body').animate({

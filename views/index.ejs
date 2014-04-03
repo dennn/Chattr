@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="author" content="Chattr" />
+	<meta name="description" content="Chattr - A web video chat website" />
+
+	<title>chattr</title>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/gridism.css" type="text/css" />
+    <link rel="stylesheet" href="css/main.css" type="text/css" />
+    <link href="css/animate.css" rel="stylesheet" type="text/css" />
+
+    <!-- Fonts --> 
+    <script type="text/javascript" src="//use.typekit.net/zjw2gza.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	</head>
+
+	<body>
+		<!-- Login via facebook section-->
+		<section class="login grid">
+			<div class="unit whole align-center">
+				<h1 class="wow fadeInDown">chattr</h1>
+				<a href="/auth/facebook" class="button-facebook wow fadeIn" data-wow-delay="0.3s">Login with Facebook</a>
+			</div>
+			<div class="unit whole align-center">
+				<button id="down-button" class="wow fadeIn" data-wow-delay="0.3s"></button>
+			</div>
+
+		</section>
+
+		<!-- Friends section -->
+		<section class="contacts grid">
+			<div class="unit golden-small align-left">
+				<h1>Connecting you with your world.</h1>
+				<p>Chattr means that you're always connected to your love ones, wherever they are in the world. And because it uses Facebook, your contacts are already synced.</p>
+			</div>
+			<!-- Friend images -->
+			<div class="unit golden-large align-center">
+				<div class="grid">
+ 					<div class="unit one-third">
+            			<img class="contact-image" src="img/ian.png" alt="Ian" />
+          			</div>
+          			<div class="unit one-third">
+            			<img class="contact-image" src="img/jessica.png" alt="Jessica" />
+          			</div>
+          			<div class="unit one-third">
+            			<img class="contact-image" src="img/mia.png" alt="Mia" />
+          			</div>
+          		</div>
+          		<div class="grid">
+ 					<div class="unit one-third">
+            			<img class="contact-image" src="img/leah.png" alt="Ian" />
+          			</div>
+          			<div class="unit one-third">
+            			<img class="contact-image" src="img/toby.png" alt="Ian" />
+          			</div>
+          			<div class="unit one-third">
+            			<img class="contact-image" src="img/josh.png" alt="Ian" />
+          			</div>
+          		</div>
+			</div>
+		</section>
+
+		<!-- Technologies -->
+		<section class="technologies grid">
+			<h1 class="unit whole align-center">Core technologies.</h1>
+
+			<div class="grid">
+				<div class="unit one-third align-center">
+					<img src="img/redis.png" class="technology" alt="Redis logo"/>
+					<p>Redis is awesome. It's speed and ease of use powers the portion of our site that handles the chat room state storage. </p>
+				</div>
+				<div class="unit one-third align-center">
+					<img src="img/nodejs.png" class="technology" alt="Node.js logo"/>
+					<p>Node.js is the invisible guardian of chattr. It serves the content, sets up the initial connections between you and your friends and runs the services behind the scenes.</p>
+				</div>
+				<div class="unit one-third align-center">
+					<img src="img/webrtc.png" class="technology" alt="WebRTC logo"/>
+					<p>WebRTC is a new technology that is used to send the video chat data between you and your friends. It's all encrypted, so that your private conversations remain just that - private. </p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact -->
+		<section class="contact-us grid wow fadeInUp">
+			<h1 id="signup-text" class="unit whole align-center">Signup to be notified when we launch.</h1>
+			<form class="unit whole align-center" id="email-signup" action="" method="post">
+				<input name="email" id="email" type="text" placeholder="Enter your e-mail address" class="input-text" required=""/>
+				<input id="email-submit" type="submit" class="input-submit" />
+			</form>
+		</section>
+
+		<!-- Javascript -->
+  		<script src='js/wow.min.js'></script>
+  		<script src="js/jquery-2.1.0.min.js"></script>
+  		<script src="js/index.js"></script>
+    </body>
+</html>

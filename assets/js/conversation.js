@@ -38,60 +38,21 @@ $(function() {
 		}
 	});
 
-
-				/* Generate white noise 
-
-			var backgroundsToGenerate = 20;
-			var updateInterval = 40;
-
-			var canvas = document.getElementById("videoCanvas");
-			var context = canvas.getContext("2d");
-
-			var backgrounds = [];
-			var cycle = 0;
-			var timer;
-
-			generateNoise();
-
-			function generateNoise() {
-				var w = canvas.width;
-				var h = canvas.height;
-
-				for (id = 0; id < backgroundsToGenerate; id++) {
-					for (i = 0; i < w; i++) {
-						for (j = 0; j < h; j++) {
-							var num = Math.floor(Math.random() * 255);
-							context.fillStyle = "rgb(" + num + "," + num + "," + num + ")";
-							context.fillRect(i, j, 1, 1);
-						}
-					}
-					var dataURL = canvas.toDataURL();
-					backgrounds.push(dataURL);
-				}
-				timer = setInterval(useNoise, updateInterval);
-			}
-
-			function removeNoise() {
-				clearInterval(timer);
-				myVideo.css({
-					"background": ""
-				});
-			}
-
-			function replaceBackground(dataURL) {
-				myVideo.css({
-					"background": "url(" + dataURL + ")"
-				});
-			}
-
-			function useNoise() {
-				if (cycle > backgrounds.length - 1) {
-					cycle = 0;
-				}
-
-				replaceBackground(backgrounds[cycle]);
-				cycle++;
-			}
-
-			*/
+	// Remove the ugly Facebook appended hash
+	// <https://github.com/jaredhanson/passport-facebook/issues/12>
+	if (window.location.hash && window.location.hash === "#_=_") {
+  		if (window.history && history.replaceState) {
+    		window.history.replaceState("", document.title, window.location.pathname);
+  		} else {
+    		// Prevent scrolling by storing the page's current scroll offset
+    		var scroll = {
+      			top: document.body.scrollTop,
+      			left: document.body.scrollLeft
+    		};
+    		window.location.hash = "";
+   		 	// Restore the scroll offset, should be flicker free
+    		document.body.scrollTop = scroll.top;
+    		document.body.scrollLeft = scroll.left;
+  		}
+	}
 });

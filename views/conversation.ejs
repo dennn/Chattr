@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="author" content="Chattr" />
+	<meta name="description" content="Chattr - A web video chat website" />
+
+	<title>chattr - Conversations</title>
+
+	<!-- CSS -->
+	<link href="/css/gridism.css" rel="stylesheet" />
+	<link href="/css/main.css" rel="stylesheet" />
+
+	<!-- Fonts --> 
+	<script type="text/javascript" src="//use.typekit.net/zjw2gza.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+</head>
+
+<body>
+	<!-- Navigation-->
+	<nav class="grid">
+		<!-- Offset the grid with an empty div-->
+		<div class="unit one-third"></div>
+		<h1 class="unit one-third align-center">chattr</h1>
+		<div class="unit one-third align-right">
+			<h2>Denis Ogun</h2>
+			<a href="/logout"><img src="/img/logout.png" alt="logout" class="logout" /></a>
+		</div>
+	</nav>
+
+	<section class="grid conversation">
+		<div class="unit golden-small align-center">
+			<div id="myVideoContainer">
+				<video id="myVideo" autoplay=""></video>
+			</div>
+			<canvas id="videoCanvas"></canvas>
+			<ul id="filter-buttons" class="pull-left">
+				<li id="sepia" class="filter-button">Sepia</li>
+				<li id="grayscale" class="filter-button">Grayscale</li>
+				<li id="blur" class="filter-button">Blur</li>
+				<li id="invert" class="filter-button">Invert</li>
+			</ul>
+		</div>
+
+		<div class="unit golden-large">
+			<div id="theirVideoContainer">
+				<video id="theirVideo" autoplay=""></video>
+			</div>
+		</div>
+	</section>
+
+	<!-- Javascript -->
+	<script src="/js/jquery-2.1.0.min.js"></script>
+	<script src="/js/socket.io.min.js"></script>
+	<script src="/js/conversation.js"></script>
+</body>
+</html>

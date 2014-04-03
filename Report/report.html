@@ -12,11 +12,12 @@
 </head>
 <body>
 <h1>Web Tech Client Report - Denis Ogun (do1303)</h1>
+<p>Site deployed at <a href="http://young-springs-6599.herokuapp.com">http://young-springs-6599.herokuapp.com</a>. Please note there may be a few seconds delay as Heroku pauses running nodes after an hour of inactivity</p>
 <h1>Introduction</h1>
 <p>For this assignment I decided to create the basics of a new startup called chattr. Chattr allows users to create a video chat room and then have conversations with their friends.</p>
 <h1>Highlights</h1>
 <ul>
-<li>Working webcam input, including the ability to add CSS filters to the webcam input.</li>
+<li>Working webcam input, including the ability to add CSS filters to the webcam input: <a href="http://cl.ly/USEu">grayscale</a>, <a href="http://cl.ly/USJU">inverted</a> and <a href="http://cl.ly/US4o">sepia</a>.</li>
 <li>The basics of WebRTC communication has been setup including importing the Socket.IO library. To complete this there needs to be some communication with the server before the peer-2-peer communication can occur.</li>
 <li>JQuery email form validation. I found a Regex email checking string on www.stackoverflow.com but wrote all the other JQuery code in index.js myself, using the documentation and Google searches to find method names.</li>
 <li>CSS animation effects using the Animate.css and Wow.js frameworks. Animate.css contains the CSS3 animations and the Wow.js library is a javascript library that calls these animations when the elements are scrolled into the viewport.</li>
@@ -26,6 +27,7 @@
 <h1>HTML, CSS and Javascript</h1>
 <p>I've used HTML tags in an appropriate way, utilising new tags such as &lt;section&gt; and &lt;nav&gt; rather than simply having a &lt;div&gt;. All HTML, CSS and Javascript are separate from each other except an Adobe TypeKit call. Adobe TypeKit is a CDN for fonts and the line of Javascript authenticates itself, before adding the relevant @font-face CSS styles.</p>
 <p>There is one commented section of Javascript in conversation.js that generates a series of 20 random white noise images. These are then used as loading image whilst webcam input is being approved. This can be enabled by uncommenting lines 16, 42 and 96. The reason it's disabled is because it was causing a render blocking issue that I was unable to fix in time, but an image of the white noise can be seen <a href="http://cl.ly/URqP">here</a>.</p>
+<p>I used the Gridism.css framework to help structure the layout of the HTML. This is a minamalistic CSS framework that comes with grid size definitions that also gracefully scale using @media-queries</p>
 <h1>Images and graphics</h1>
 <ul>
 <li>Adobe Illustrator was used to create the <a href="http://cl.ly/USOv">scroll down image</a> and the <a href="http://cl.ly/URen">log out image</a>. I chose to use Adobe Illustrator as I've had experience with it in the past, and so felt I'd be able to achieve more in the assignment if I didn't have to learn how to use another piece of software.</li>

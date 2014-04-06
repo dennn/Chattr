@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 (experimental) for Mac OS X https://github.com/w3c/tidy-html5/tree/c63cc39" />
+<meta charset="UTF-8" />
+<title>report - Denis Ogun (do1303)</title>
+<meta name="generator" content="iA Writer for Mac 1.5.1 (5593)" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link href="server.css" rel="stylesheet" />
+</head>
+<body>
+	<h1>Web Tech Server Report - Denis Ogun (do1303)</h1>
+	<p>Site deployed at <a href="http://young-springs-6599.herokuapp.com">http://young-springs-6599.herokuapp.com</a>. Please note there may be a few seconds delay as Heroku pauses running nodes after an hour of inactivity</p>
+
+	<h1>Introduction</h1>
+	<p>For this assignment I continued the work that I had started on the client assignment. My project is titled chattr- a video conferencing application that runs solely with standardised web technologies.</p>
+	<p>The technology stack I am using is:</p>
+	<ul>
+		<li>Node.js - Scripting platform</li>
+		<li>Express - Web server</li>
+		<li>Socket.io - Realtime socket communication using WebSockets</li>
+		<li>WebRTC - Peer2Peer video and audio communication</li>
+		<li>Redis - Fast and scalable key-value data storage</li>
+	</ul>
+
+	<h1>Highlights</h1>
+	<p>Overall, I managed to support all the client features I had intended to add as well as adding some more. I spent quite a lot of time getting to grips with WebRTC, and this was quite hard due to how cutting-edge it is.</p>
+	<ul>
+		<li>Working Facebook authentication and profile data parsing. Once a user has logged in a unique key for their user ID is set in the Redis database and this is used in subsequent logins. A session key is also set to keep them logged in for a reasonable length of time. There is also manual logout functionality.</li>
+		<li>There is a concept of chat rooms, and to access a chat room you need to be logged in.</li>
+		<li>When two users are in a chat room, and both have enabled camera access there is a handshaking procedure over Socket.io. This took quite a lot of my time and involved a lot of time reading through the standards. After this handshaking is complete, the peers are able to stream video and audio to each other as <a href="http://cl.ly/Uqlw">can be seen here</a>. Another issue I came across was getting the peers to connect with each other when they weren't within the local network. To combat this I learn about STUN and TURN servers, and had to use a STUN server in my code. There is more about this in the WebRTC section below.</li>
+		<li>Adding a filter on <a href="http://cl.ly/Uq1O">my video</a> also has the same effect on the <a href="http://cl.ly/UqPc">other video</a>. The filter chosen is sent using Socket.io</li>
+		<li>When there is another user in your chat room, their Facebook information is shown including their name, gender, profile link and profile picture</li>
+		<li>I added email subscription signup using MailChimp as the email service provider. I interface with their API, sending the user's email address over AJAX and showing the user a <a href="http://cl.ly/UqNT">success message</a> or an <a href="http://cl.ly/Upnu">error.</a></li>
+	</ul>
+
+	<h1>WebRTC and </h1>
+	<p>The site is running on a Node.js server using <a href="http://young-springs-6599.herokuapp.com">Heroku</a>, and this is why there is a Procfile and package.json file in the directory. Typing <em>npm install</em> within the directory should install all necessary dependencies, although the Facebook login is tied to the Heroku URL and so will present an error. I tested using Chrome Version 33.0.1750.152 and was unable to ensure cross-compatibility with Firefox and Opera due to time being spent on the technical challenges involved in a project like this. Note that no other browsers support WebRTC yet apart from those listed</p>
+
+
+	<h1>Deployment and other notes</h1>
+	<p>The site is running on a Node.js server using <a href="http://young-springs-6599.herokuapp.com">Heroku</a>, and this is why there is a Procfile and package.json file in the directory. Typing <em>npm install</em> within the directory should install all necessary dependencies, although the Facebook login is tied to the Heroku URL and so will present an error. I tested using Chrome Version 33.0.1750.152 and was unable to ensure cross-compatibility with Firefox and Opera due to time being spent on the technical challenges involved in a project like this. Note that no other browsers support WebRTC yet apart from those listed</p>
+
+</body>
+</html>

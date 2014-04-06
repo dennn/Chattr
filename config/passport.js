@@ -34,6 +34,7 @@ module.exports = function(passport, redis) {
 
 	function(token, refreshToken, profile, done) {
 		process.nextTick(function() {
+			console.log(profile);
 			var userString = "users:" + profile.id;
 			redis.hgetall(userString, function(err, user) {
 				if (err) {

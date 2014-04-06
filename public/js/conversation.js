@@ -4,6 +4,7 @@ $(function() {
 
 	if (navigator.getUserMedia) {       
 		navigator.getUserMedia({video: true, audio: true}, handleVideo, handleError);
+		navigator.getUserMedia({video: true, audio: false}, handleLocalVideo, handleError);
 	} else {
 		window.location.replace("/no-web-rtc");
 	}
@@ -160,10 +161,13 @@ $(function() {
 
 	/* Local Video playing */
 
-	function handleVideo(stream) {
-		localStream = stream;
+	function handleLocalVideo(stream) {
 		myVideo[0].src = window.URL.createObjectURL(stream);
 		myVideo[0].load();
+	}
+
+	function handleVideo(stream) {
+		localStream = stream;
 		connect();
 	}
 

@@ -2,9 +2,10 @@
 var express = require('express');
 var passport = require('passport');
 var RedisStore = require('connect-redis')(express);
-var redis = require('redis').createClient();
+var redis = require('redis')
 var mailchimpAPI = require('mailchimp-api/mailchimp');
 var http = require('http')
+var url = require('url')
 
 var app = express();
 var server = http.createServer(app);
@@ -20,6 +21,12 @@ mc = new mailchimpAPI.Mailchimp('4d80db6ce5a58a042bb93766436596d5-us8')
 
 require('./config/passport')(passport, redis);
 
+/* Setup Redis */
+
+var redisURL = url.parse(process.env.REDISCLOUD_URL);
+var redisClient = redis.createClient(redisURL.port, redisURL.hostname, {no_ready_check: true});
+redisClient.auth(redisURL.auth.split(":")[1]);
+
 // Configuration
 
 app.configure(function () {
@@ -34,9 +41,7 @@ app.configure(function () {
     app.use(express.session({ 
     	secret : "ecca0f2e-84de-4b3d-9f5f-f2e2a8df7116",
     	store : new RedisStore({
-    		host : 'localhost',
-    		port : 6379,
-            client: redis
+            client: redisClient
     	})
     }));
     app.use(passport.initialize());
@@ -44,7 +49,7 @@ app.configure(function () {
 });
 
 /* Application route handling */
-require('./app/routes.js')(app, passport, redis);
+require('./app/routes.js')(app, passport, redisClient);
 
 /* Socket.io WebRTC stuff */
 require('./app/socket.js')(app, socket);

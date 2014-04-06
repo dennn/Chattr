@@ -20,7 +20,7 @@ module.exports = function(passport, redis) {
 	var callbackURL;
 
 	if (process.env.NODE_ENV === "production") {
-		callbackURL : 'http://http://young-springs-6599.herokuapp.com/auth/facebook/callback';
+		callbackURL : 'http://young-springs-6599.herokuapp.com/auth/facebook/callback';
 	} else {
 		callbackURL : 'http://localhost:8080/auth/facebook/callback';
 	}

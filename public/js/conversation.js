@@ -3,8 +3,7 @@ $(function() {
 	navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
 
 	if (navigator.getUserMedia) {       
-		navigator.getUserMedia({video: true, audio: true}, handleVideo, handleError);
-		navigator.getUserMedia({video: true, audio: false}, handleLocalVideo, handleError);
+		navigator.getUserMedia({video: true, audio: false}, handleVideo, handleError);
 	} else {
 		window.location.replace("/no-web-rtc");
 	}
@@ -160,13 +159,10 @@ $(function() {
 	}
 
 	/* Local Video playing */
-
-	function handleLocalVideo(stream) {
+	
+	function handleVideo(stream) {
 		myVideo[0].src = window.URL.createObjectURL(stream);
 		myVideo[0].load();
-	}
-
-	function handleVideo(stream) {
 		localStream = stream;
 		connect();
 	}

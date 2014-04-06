@@ -17,18 +17,18 @@ module.exports = function(passport, redis) {
   		});
 	});
 
-	var callbackURL;
+	var callbackURLl;
 
 	if (process.env.NODE_ENV === "production") {
-		callbackURL : 'http://young-springs-6599.herokuapp.com/auth/facebook/callback';
+		callbackURLl = 'http://young-springs-6599.herokuapp.com/auth/facebook/callback';
 	} else {
-		callbackURL : 'http://localhost:8080/auth/facebook/callback';
+		callbackURLl = 'http://localhost:8080/auth/facebook/callback';
 	}
 
 	passport.use(new FacebookStrategy({
 		clientID : '259302307583669',
 		clientSecret : 'd34df6f4eaa294550f1c752ddce2e981',
-		callbackURL : callbackURL,
+		callbackURL : callbackURLl,
 		profileFields : ['id', 'displayName', 'gender', 'photos', 'link']
 	},
 

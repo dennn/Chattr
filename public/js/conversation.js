@@ -1,5 +1,6 @@
 $(function() {
 
+	// Get the correct user media 
 	navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
 
 	if (navigator.getUserMedia) {       
@@ -89,6 +90,10 @@ $(function() {
 	function CreatePeerConnection() {
 		console.log("Creating peer connection");
 		RTCPeerConnection = webkitRTCPeerConnection || mozRTCPeerConnection;
+		if (RTCPeerConnection == null) {
+			window.location.replace("/no-web-rtc");
+		}
+		
 		var config = {"iceServers": [{ url: 'stun:stun.l.google.com:19302'}],
 					    'optional': [{'DtlsSrtpKeyAgreement': 'true'}]};
 

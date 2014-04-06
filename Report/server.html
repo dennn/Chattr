@@ -36,12 +36,18 @@
 		<li>I added email subscription signup using MailChimp as the email service provider. I interface with their API, sending the user's email address over AJAX and showing the user a <a href="http://cl.ly/UqNT">success message</a> or an <a href="http://cl.ly/Upnu">error.</a></li>
 	</ul>
 
-	<h1>WebRTC and </h1>
-	<p>The site is running on a Node.js server using <a href="http://young-springs-6599.herokuapp.com">Heroku</a>, and this is why there is a Procfile and package.json file in the directory. Typing <em>npm install</em> within the directory should install all necessary dependencies, although the Facebook login is tied to the Heroku URL and so will present an error. I tested using Chrome Version 33.0.1750.152 and was unable to ensure cross-compatibility with Firefox and Opera due to time being spent on the technical challenges involved in a project like this. Note that no other browsers support WebRTC yet apart from those listed</p>
-
+	<h1>WebRTC and the Server</h1>
+	<p>WebRTC was definitely the most challenging aspect of this assignment, as there are lots of fiddly things to get right. I spent a while debugging the lack of video as I hadn't realised that a peer can't send an offer request, and then accept another offer. A workaround I came up with is that on receiving an offer request, the user then creates a new PeerConnection before accepting. As mentioned above I also had to look into STUN and TURN servers. These are used in cases where a direct Peer2Peer connection can't be established due to the network architecture. A STUN server works in the following way</p>
+	<ol>
+		<li>A peer sends a request to the STUN server</li>
+		<li>The STUN server gets the request and creates a response consisting of the peer's IP and port</li>
+		<li>The peer then receives this response and send it to another peer so that they can now connect</li>
+	</ol>
+	<p>However, in other cases (such as when the client is behind a VPN) this still doesn't work. In these cases a TURN server needs to be created that relays the data between the two peers. Due to the cost of creating a TURN server there are no public ones available, and I didn't have the resources to set one up</p>
+	<p>
 
 	<h1>Deployment and other notes</h1>
-	<p>The site is running on a Node.js server using <a href="http://young-springs-6599.herokuapp.com">Heroku</a>, and this is why there is a Procfile and package.json file in the directory. Typing <em>npm install</em> within the directory should install all necessary dependencies, although the Facebook login is tied to the Heroku URL and so will present an error. I tested using Chrome Version 33.0.1750.152 and was unable to ensure cross-compatibility with Firefox and Opera due to time being spent on the technical challenges involved in a project like this. Note that no other browsers support WebRTC yet apart from those listed</p>
+	<p>The site is running on a Node.js server using <a href="http://young-springs-6599.herokuapp.com">Heroku</a>, and this is why there is a Procfile and package.json file in the directory. Typing <em>npm install</em> within the directory should install all necessary dependencies, although the Facebook login is tied to the Heroku URL and so will present an error. I tested using Chrome Version 33.0.1750.152 and was unable to ensure cross-compatibility with Firefox and Opera due to time being spent on the technical challenges involved in a project like this. Note that no other browsers support WebRTC yet apart from those listed.</p>
 
 </body>
 </html>

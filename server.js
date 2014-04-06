@@ -23,9 +23,13 @@ require('./config/passport')(passport, redis);
 
 /* Setup Redis */
 
-var redisURL = url.parse(process.env.REDISCLOUD_URL);
-var redisClient = redis.createClient(redisURL.port, redisURL.hostname, {no_ready_check: true});
-redisClient.auth(redisURL.auth.split(":")[1]);
+if (process.env.NODE_ENV === "production") {
+    var redisURL = url.parse(process.env.REDISCLOUD_URL);
+    var redisClient = redis.createClient(redisURL.port, redisURL.hostname, {no_ready_check: true});
+    redisClient.auth(redisURL.auth.split(":")[1]);
+} else {
+    var redisClient = redis.createClient(6379, "localhost", {no_ready_check: true});
+}
 
 // Configuration
 

@@ -32,7 +32,7 @@ $(function() {
 	/* Socket setup */
 	//var socket = io.connect('http://localhost:8080');
 	var socket = io.connect('http://young-springs-6599.herokuapp.com');
-	
+
 	socket.on('connect', onChannelOpened)
 		  .on('message', onMessage)
 		  .on('filter', onFilter)
@@ -178,6 +178,8 @@ $(function() {
 
 	function onQuitting() {
 		otherVideo[0].src = "";
+		$('#friend').fadeOut();
+		$('#nobody').fadeIn();
 	}
 
 	/* Video filters */

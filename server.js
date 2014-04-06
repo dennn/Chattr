@@ -31,6 +31,7 @@ if (process.env.NODE_ENV === "production") {
     var redisClient = redis.createClient(6379, "localhost", {no_ready_check: true});
 }
 
+console.log(redisClient);
 // Configuration
 
 app.configure(function () {

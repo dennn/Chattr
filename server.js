@@ -17,21 +17,22 @@ socket.set('log level', 1);
 
 mc = new mailchimpAPI.Mailchimp('4d80db6ce5a58a042bb93766436596d5-us8')
 
-/* Passport.js authentication library */
-
-require('./config/passport')(passport, redis);
-
 /* Setup Redis */
+
+var redisClient;
 
 if (process.env.NODE_ENV === "production") {
     var redisURL = url.parse(process.env.REDISCLOUD_URL);
-    var redisClient = redis.createClient(redisURL.port, redisURL.hostname, {no_ready_check: true});
+    redisClient = redis.createClient(redisURL.port, redisURL.hostname, {no_ready_check: true});
     redisClient.auth(redisURL.auth.split(":")[1]);
 } else {
-    var redisClient = redis.createClient(6379, "localhost", {no_ready_check: true});
+    redisClient = redis.createClient(6379, "localhost", {no_ready_check: true});
 }
 
-console.log(redisClient);
+/* Passport.js authentication library */
+
+require('./config/passport')(passport, redisClient);
+
 // Configuration
 
 app.configure(function () {

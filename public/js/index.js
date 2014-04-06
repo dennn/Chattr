@@ -14,15 +14,23 @@ $(function() {
 
 	 $("#email-signup").submit(function(event) {
      	event.preventDefault(event);  
-	 	console.log("CALLED");
-	 	var email = $('#email').val();
-	 	if (email == '' || IsEmail(email) == false) {
+     	$("#email-submit").css({"background-color" : "rgb(54, 54, 54)"});
+	 	var email = { email: $('#email').val() };
+	 	if (email.email == '' || IsEmail(email.email) == false) {
 	 		// Show error
-	 		$("#signup-text").showError();
+	 		$("#signup-text").showEmailError();
+	 		$("#email-submit").css({"background-color" : "rgb(51, 154, 21)"});
 	 	} else {
-	 		//Fade out contact form and fade in success
-	 		$("#signup-text").showSuccess();
-	 		$(this).fadeOut();
+	 		$.get('/email', email, function(data) {
+	 			if (data.success == true) {
+	 				//Fade out contact form and fade in success
+	 				$("#signup-text").showSuccess();
+	 				$("#email-signup").fadeOut();
+	 			} else {
+	 				$("#signup-text").showError();
+     				$("#email-submit").css({"background-color" : "rgb(51, 154, 21)"});
+	 			}
+	 		});
 	 	}
 	 	return false;
 	 });
@@ -41,12 +49,21 @@ $(function() {
 
 	 $.fn.showError = function() {
 	 	$(this).fadeOut(function() {
-	 		$(this).text("Sorry, that email is invalid");
+	 		$(this).text("Sorry, an error occurred");
 	 		$(this).css('color', 'rgb(200, 44, 40)');
 	 	}).fadeIn();
 
 	 	return this;
 	 }
+
+	 $.fn.showEmailError = function() {
+	 	$(this).fadeOut(function() {
+	 		$(this).text("Sorry, that email is invalid");
+	 		$(this).css('color', 'rgb(200, 44, 40)');
+	 	}).fadeIn();
+
+	 	return this;
+	 }	 
 
 	 $.fn.hideError = function() {
 	 	$(this).fadeOut(function() {

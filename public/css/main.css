@@ -9,6 +9,9 @@ body, html {
 	background-color: #000
 }
 
+textarea {
+	resize: none;
+}
 /* Sections */
 
 section {
@@ -19,6 +22,10 @@ section {
 	min-height: 100%;
 	color: #fff;
 	background-color: rgb(24, 27, 31);
+}
+
+.hide {
+	visibility: hidden;
 }
 
 .contacts {
@@ -202,6 +209,7 @@ section {
 	cursor: pointer;
 	color: white;
 	text-decoration: none;
+	outline-width: 0;
 }
 
 .input-submit:hover {
@@ -257,6 +265,7 @@ nav h2 {
     background: #000;
     width: 100%;
     height: 40%;
+    object-fit: fill;
 }
 
 #theirVideoContainer {
@@ -270,12 +279,7 @@ nav h2 {
 	background: #000;
     width: 100%;
     height: 80%;
-}
-
-#videoCanvas {
-    display: none;
-    width: 10px;
-    height: 10px;
+    object-fit: fill;
 }
 
 #filter-buttons {
@@ -356,4 +360,96 @@ nav h2 {
 	margin-top: 16px;
 	text-decoration: none;
 	font-weight: 800;
+}
+
+/* Conversation */
+.conversation p {
+	font-family: "petala-pro",sans-serif;
+	font-weight: 300;
+	font-size: 1.0em;
+	line-height: 1.3em;
+	color: rgb(255, 255, 255);
+	margin-top: 18%;
+	width: 84%;
+	text-align: left;
+	margin-left: 7%;
+}
+
+#conversation-link {
+	padding: 10px;
+	text-align: center;
+	margin-left: -4%;
+	width: 75%;
+	height: auto;
+	margin-top: 8%;
+	font-family: "petala-pro",sans-serif;
+	font-weight: 300;
+	font-size: 1.2em;
+	background-color: rgb(38, 38, 41);
+	color: rgb(222, 222, 222);
+	border: 1px solid rgb(244, 244, 244);
+}
+
+#conversation-link:focus {
+	outline: none;
+}	
+
+#friend {
+	display: none;
+}
+
+#friend h2 {
+	font-family: "petala-pro",sans-serif;
+	font-weight: 400;
+	font-size: 1.0em;
+	line-height: 1.3em;
+	color: rgb(255, 255, 255);
+	margin-top: 18%;
+	width: 84%;
+	text-align: left;
+	margin-left: 7%;
+}
+
+#friend img {
+	float: left;
+	margin-top: 5%;
+	margin-left: 11%;
+	width: 120px;
+	height: 120px;
+	border: 1px solid rgb(244, 244, 244);
+}
+
+#friend span {
+	position: absolute;
+	margin-left: -80px;
+}
+
+#friend ol {
+	padding-left: 0px;
+	float: left;
+	width: 50%;
+	margin-top: -20px;
+}
+
+#friend li {
+	display: block;
+	position: relative;
+	font-family: "petala-pro",sans-serif;
+	font-weight: 400;
+	font-size: 1.0em;
+	color: rgb(255, 255, 255);
+	height: 0.1em;
+}
+
+#friend p {
+	padding-left: 100px;
+	font-size: 0.9em;
+}
+
+#friend a {
+	color: rgb(255, 255, 255);
+}
+
+#gender {
+	text-transform: capitalize;;
 }

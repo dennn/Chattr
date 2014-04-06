@@ -22,11 +22,15 @@
 	<body>
 		<!-- Login via facebook section-->
 		<section class="login grid">
-			<div class="unit whole align-center">
+			<div class="unit whole align-center hide">
 				<h1 class="wow fadeInDown">chattr</h1>
+				<% if (loggedIn == true) { %>
+				<a href="/conversation" class="button-facebook wow fadeIn" data-wow-delay="0.3s">Start a conversation</a>
+				<% } else { %>
 				<a href="/auth/facebook" class="button-facebook wow fadeIn" data-wow-delay="0.3s">Login with Facebook</a>
+				<% } %>
 			</div>
-			<div class="unit whole align-center">
+			<div class="unit whole align-center hide">
 				<button id="down-button" class="wow fadeIn" data-wow-delay="0.3s"></button>
 			</div>
 

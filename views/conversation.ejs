@@ -19,14 +19,19 @@
 
 </head>
 
-<body>
+<body data-user-id="<%= userID %>">
 	<!-- Navigation-->
 	<nav class="grid">
 		<!-- Offset the grid with an empty div-->
 		<div class="unit one-third"></div>
-		<h1 class="unit one-third align-center">chattr</h1>
+		<% if (newRoom == null) { %>
+		<h1 class="unit one-third align-center">chattr - Creating new room </h1>
+		<% } else { %>
+		<h1 class="unit one-third align-center">chattr -  Room <%= newRoom %></h1>
+		<% } %>
+
 		<div class="unit one-third align-right">
-			<h2>Denis Ogun</h2>
+			<h2><%= username %></h2>
 			<a href="/logout"><img src="/img/logout.png" alt="logout" class="logout" /></a>
 		</div>
 	</nav>
@@ -36,13 +41,32 @@
 			<div id="myVideoContainer">
 				<video id="myVideo" autoplay=""></video>
 			</div>
-			<canvas id="videoCanvas"></canvas>
 			<ul id="filter-buttons" class="pull-left">
 				<li id="sepia" class="filter-button">Sepia</li>
 				<li id="grayscale" class="filter-button">Grayscale</li>
 				<li id="blur" class="filter-button">Blur</li>
 				<li id="invert" class="filter-button">Invert</li>
 			</ul>
+
+			<div id ="nobody"> 
+				<p>You're not currently talking to anyone, to invite them send them the link below:</p>
+				<textarea id="conversation-link" rows="1" readonly="readonly"><%= url %></textarea>
+			</div>
+			<div id="friend">
+				<h2>You're now talking to:</h2>
+				<img id="friend-pic" src="" alt="Friend's profile" />
+				<ol>
+					<li>
+						<span>Name:</span><p id="name"></p>
+					</li>
+					<li>
+						<span>Gender:</span><p id="gender"></p>
+					</li>
+					<li>
+						<span>Profile:</span><p><a id="profile-link" href="">Facebook</a></p>
+					</li>
+				</ol>
+			</div>
 		</div>
 
 		<div class="unit golden-large">

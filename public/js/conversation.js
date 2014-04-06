@@ -89,7 +89,7 @@ $(function() {
 	function CreatePeerConnection() {
 		console.log("Creating peer connection");
 		RTCPeerConnection = webkitRTCPeerConnection || mozRTCPeerConnection;
-		var config = {"iceServers": []};
+		var config = {"iceServers": [{ url: 'stun:stun.l.google.com:19302'}]};
 
 		peerConnection = new RTCPeerConnection(config);
 		peerConnection.onicecandidate = function(evt) {
